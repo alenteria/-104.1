@@ -1,0 +1,279 @@
+<div class="row no-gutter">
+  <div class="col-sm-12 col-md-12 col-lg-12" style="background:#F9F9F9;">
+
+    <div class="p-20 no-p-t">
+
+      <!-- <div class="row gutter-14 kpi-dashboard totals">
+        <div class="col-md-2">
+          <div class="card small">
+              <h4>Leads</h4>
+              <div>{{leadsData.total}}</div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card small">
+              <h4>Signups</h4>
+              <div>{{signupsData.total}}</div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card small">
+              <h4>Facebook</h4>
+              <div>{{charts.facebook}}</div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card small">
+              <h4>Twitter</h4>
+              <div>{{charts.twitter}}</div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card small">
+              <h4>Google</h4>
+              <div>{{charts.google}}</div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card small">
+              <h4>Website</h4>
+              <div>{{charts.website}}</div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="p-20 no-p-t">
+      <div class="row gutter-14 kpi-dashboard">
+        <!-- <div class="col-md-4">
+          <div class="card small">
+              <div id="leads-chart"></div>
+              </div>
+
+            </div>
+        <div class="col-md-4">
+          <div class="card small">
+              <div id="visitors-chart"></div>
+          </div>
+        </div> -->
+
+        <div class="col-md-4">
+          <div class="card small">
+            <div class="theme-lighten-1 p-10">
+
+              <h4 class="no-margin white-text w600">Registrations</h4>
+
+              <div class="p-10 p-t-30">
+                <c3chart bindto-id="chart-line-1" callback-function="signupChartCallabck">
+                  <chart-column column-id="Signups"
+                                column-values="{{signupsData.segments}}"
+                                column-type="line" />
+                  <chart-axis-y show="false" />
+                  <chart-axis-x show="false" />
+                  <chart-legend show-legend="false" />
+                  <chart-size chart-height="100px" />
+                  <chart-tooltip show-tooltip="true" />
+                  <chart-colors color-pattern="#fff" />
+                </c3chart>
+              </div>
+            </div>
+
+            <div class="card-content p-10">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <h3 class="no-margin w300">{{signupsData.total}}</h3>
+                  <p class="grey-text w600">Total</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card small">
+            <div class="theme-secondary-lighten-1 p-10">
+
+              <h4 class="no-margin white-text w600">Leads</h4>
+
+              <div class="p-10 p-t-30">
+                <c3chart bindto-id="chart-line-2" callback-function="leadsChartCallabck">
+                  <chart-column column-id="Leads"
+                                column-values="{{leadsData.segments}}"
+                                column-type="line" />
+                  <chart-axis-y show="false" />
+                  <chart-axis-x show="false" />
+                  <chart-legend show-legend="false" />
+                  <chart-size chart-height="100px" />
+                  <chart-tooltip show-tooltip="true" />
+                  <chart-colors color-pattern="#fff" />
+                </c3chart>
+              </div>
+            </div>
+
+            <div class="card-content p-10">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <h3 class="no-margin w300">{{leadsData.total}}</h3>
+                  <p class="grey-text w600">Total</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card small">
+            <div class="green lighten-1 p-10">
+
+              <h4 class="no-margin white-text w600">Newsletter signups</h4>
+
+              <div class="p-10 p-t-30">
+                <c3chart bindto-id="chart-line-3" callback-function="newsuserChartCallabck">
+                  <chart-column column-id="Newsletter"
+                                column-values="{{newsusersData.segments}}"
+                                column-type="line" />
+                  <chart-axis-y show="false" />
+                  <chart-axis-x show="false" />
+                  <chart-legend show-legend="false" />
+                  <chart-size chart-height="100px" />
+                  <chart-tooltip show-tooltip="true" />
+                  <chart-colors color-pattern="#fff" />
+                </c3chart>
+              </div>
+            </div>
+
+            <div class="card-content p-10">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <h3 class="no-margin w300">{{newsusersData.total}} </h3>
+                  <p class="grey-text w600">Total</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="row gutter-14 kpi-dashboard">
+          <div class="col-md-3">
+            <div class="card small">
+              <div id="facebook-chart"></div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card small">
+              <div id="twitter-chart"></div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card small">
+              <div id="google-chart"></div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card small">
+              <div id="website-chart"></div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row gutter-14 kpi-dashboard">
+          <div class="col-md-3">
+            <div class="card small">
+              <div id="device-chart"></div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card small">
+              <div id="age-chart"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card small">
+              <div id="map-chart"></div>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">Top 10 Franchises</div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-full table-full-small table-dashboard-widget-1">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Num of leads</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="item in franchises.topArray">
+                    <td>{{item.name}}</td>
+                    <td>{{item.FranchiseeRequests.length}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">Lowest 10 Franchises</div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-full table-full-small table-dashboard-widget-1">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Num of leads</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="item in franchises.lowArray">
+                    <td>{{item.name}}</td>
+                    <td>{{item.FranchiseeRequests.length}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">10 Franchises Expiring Soon</div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-full table-full-small table-dashboard-widget-1">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="item in franchises.expArray">
+                    <td>{{item.name}}</td>
+                    <td><span am-time-ago="item.expires_at"></span></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+    </div>
+  </div>
+</div>
